@@ -1,3 +1,10 @@
 com\banking\app\transfers\models\Account.class
-com\banking\app\transfers\App.class
+com\banking\app\transfers\models\TransferRequest.class
+com\banking\app\transfers\Data.class
+com\banking\app\transfers\services\TransferServiceImp.class
+com\banking\app\transfers\services\TransferService.class
 com\banking\app\transfers\models\Customer.class
+com\banking\app\transfers\models\Transfer.class
+com\banking\app\transfers\App.class
+com\banking\app\transfers\controllers\TransfersEndPoints.class
+com\banking\app\transfers\models\Money.class
