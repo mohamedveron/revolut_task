@@ -8,6 +8,21 @@ The REST Api for money transfer. Technologies used:
 3- Gson for json mapping
 
 
+# Notes
+
+1- I assumed that all transfers will be with just USD currency to avoid currency conversion to avoid complexity. 
+
+2- You have in memory 4 accounts to use:
+
+		 account1 : id = 1, balance = 10000
+		 
+		 account2 : id = 2, balance = 30000
+		 
+		 account3 : id = 3, balance = 120000
+		 
+		 account4 : id = 4, balance = 2000
+
+
 # Usage
 
 To run the application:
@@ -46,17 +61,5 @@ To run the application:
 		
 		url : /getTransfers
 					
-# Notes
 
-1- I assumed that all transfers will be with just USD currency to avoid currency conversion to avoid complexity. 
-
-2- You have in memory 4 accounts to use:
-
-		 account1 : id = 1, balance = 10000
-		 
-		 account2 : id = 2, balance = 30000
-		 
-		 account3 : id = 3, balance = 120000
-		 
-		 account4 : id = 4, balance = 2000
 		
