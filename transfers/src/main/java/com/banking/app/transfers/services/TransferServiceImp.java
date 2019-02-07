@@ -34,10 +34,10 @@ public class TransferServiceImp implements TransferService{
 		}else {
 			
 			// reduce the balance of the from account
-			updateAccountBalance(fromAccount.get_id(), amount, false);
+			updateAccountBalance(fromAccount.get_id(), amount, -1);
 			
 			// add to the balance of the from account
-			updateAccountBalance(toAccount.get_id(), amount, true);
+			updateAccountBalance(toAccount.get_id(), amount, 1);
 			
 			// add the transaction
 			data.transfersData.add(new Transfer(fromAccount, toAccount, new Money("USD", amount)));
@@ -91,17 +91,14 @@ public class TransferServiceImp implements TransferService{
 	
 	
 	
-	private void updateAccountBalance(int accountId, double amount, boolean type) {
+	private void updateAccountBalance(int accountId, double amount, int type) {
 		
 		for(Account account : data.accounts) {
+			
 			if(accountId == account.get_id()) {
 				
-				if(type) {
-					account.set_balance(new Money("USD", account.get_balance().get_amount() + amount));
-				}else {
-					account.set_balance(new Money("USD", account.get_balance().get_amount() - amount));
-				}
-				
+				account.set_balance(new Money("USD", account.get_balance().get_amount() + (amount * type)));
+
 			}
 		}
 	}
