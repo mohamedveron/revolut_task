@@ -33,6 +33,13 @@ public class TransferServiceImp implements TransferService{
 			result = "you can't transfer to the same account";
 		}else {
 			
+			// reduce the balance of the from account
+			updateAccountBalance(fromAccount.get_id(), amount, false);
+			
+			// add to the balance of the from account
+			updateAccountBalance(toAccount.get_id(), amount, true);
+			
+			// add the transaction
 			data.transfersData.add(new Transfer(fromAccount, toAccount, new Money("USD", amount)));
 		}
 		
@@ -80,6 +87,23 @@ public class TransferServiceImp implements TransferService{
 		}
 		
 		return acc;
+	}
+	
+	
+	
+	private void updateAccountBalance(int accountId, double amount, boolean type) {
+		
+		for(Account account : data.accounts) {
+			if(accountId == account.get_id()) {
+				
+				if(type) {
+					account.set_balance(new Money("USD", account.get_balance().get_amount() + amount));
+				}else {
+					account.set_balance(new Money("USD", account.get_balance().get_amount() - amount));
+				}
+				
+			}
+		}
 	}
 
 	
