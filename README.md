@@ -1,9 +1,9 @@
 # revolut_task
 The REST Api for money transfer. Technologies used:
 
-1- Maven as project management tool
+1- Spark framework for REST
 
-2- SparkJava framework for REST
+2- Maven as project management tool
 
 3- Gson for json mapping
 
@@ -28,6 +28,8 @@ The REST Api for money transfer. Technologies used:
 To run the application:
 
 1- mvn clean install
+
+2- when you run the app it will start in the default port http://localhost:4567
 
 
 # Api's
